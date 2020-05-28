@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+            <TextView
+                android:id="@+id/covidTestFormTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/covidform_title"
+                android:textSize="30dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp">
+            </TextView>
+
+            <TextView
+                android:id="@+id/CovidTestFormSubTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/covidform_subtitle"
+                android:textSize="20dp">
+            </TextView>
+
+        <EditText
+            android:id="@+id/employeeName"
+            android:layout_height="wrap_content"
+            android:hint="@string/employee_name"
+            android:inputType="text"
+            android:layout_width="fill_parent">
+        </EditText>
+
+        <EditText
+            android:id="@+id/temperature"
+            android:layout_height="wrap_content"
+            android:hint="@string/temperature"
+            android:inputType="numberDecimal"
+            android:layout_width="fill_parent">
+        </EditText>
+
+        <TextView
+            android:id="@+id/symptomsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/symptoms_title"
+            android:textSize="20dp">
+        </TextView>
+        <CheckBox
+            android:id="@+id/feverCheckbox"
+            android:layout_height="wrap_content"
+            android:text="@string/fever"
+            android:layout_width="fill_parent">
+        </CheckBox>
+        <CheckBox
+            android:id="@+id/coughCheckbox"
+            android:layout_height="wrap_content"
+            android:text="@string/coughing"
+            android:layout_width="fill_parent">
+        </CheckBox>
+
+        <CheckBox
+            android:id="@+id/vomitingCheckbox"
+            android:layout_height="wrap_content"
+            android:text="@string/vomiting"
+            android:layout_width="fill_parent">
+        </CheckBox>
+
+        <Button
+            android:id="@+id/draft"
+            android:width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/draft"
+            android:onClick="saveDraft"
+            android:layout_width="fill_parent">
+        </Button>
+
+        <Button
+            android:id="@+id/submit"
+            android:width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/submit"
+            android:onClick="onSubmit"
+            android:layout_width="fill_parent">
+        </Button>
+
+    </LinearLayout>
+</ScrollView>

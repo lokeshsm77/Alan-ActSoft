@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">ActSoft</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="covidform_title">Page One</string>
+    <string name="covidform_subtitle">Please fill out all the information bellow</string>
+    <string name="employee_name">Employee Name</string>
+    <string name="temperature">Temperature</string>
+    <string name="symptoms_title">Have you experienced any of the following symptoms</string>
+    <string name="fever">Fever</string>
+    <string name="coughing">Coughing</string>
+    <string name="vomiting">Vomiting</string>
+    <string name="submit">Submit</string>
+    <string name="draft">Draft</string>
+
+
+    <string-array name="BrainsMenu">
+        <item>Dispatching</item>
+        <item>Messaging</item>
+        <item>Time Keeping</item>
+        <item>Crew Time Set</item>
+        <item>Materials Request</item>
+        <item>My Transfers</item>
+        <item>Workflow Test</item>
+        <item>Test for Fields</item>
+        <item>COVID Test</item>
+    </string-array>
+
+</resources>
