@@ -238,7 +238,7 @@ public class FormFragment extends Fragment {
                 Alan.getInstance().playText(Msgs.INVALID_RESPONSE);
             }
         } catch(Exception e){
-            Alan.getInstance().playText("JSON Exception");
+           // Alan.getInstance().playText("JSON Exception");
             e.printStackTrace();;
         }
     }
