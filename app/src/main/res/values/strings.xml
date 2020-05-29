@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ActSoft</string>
+    <string name="app_name">Actsoft</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
@@ -15,7 +15,11 @@
     <string name="draft">Draft</string>
 
 
-    <string-array name="BrainsMenu">
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string-array name="BrainsMenuItems">
         <item>Dispatching</item>
         <item>Messaging</item>
         <item>Time Keeping</item>

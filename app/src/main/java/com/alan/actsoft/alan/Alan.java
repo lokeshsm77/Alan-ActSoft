@@ -104,24 +104,19 @@ public class Alan {
      * @return
      */
 
-    public AlanCommand processAlanEventCommand(EventCommand eventCommand){
-        AlanCommand alanCommand;
+    public JSONObject processAlanEventCommand(EventCommand eventCommand){
         try {
             JSONObject commandObject = eventCommand.getData();
             if( commandObject != null && commandObject.getJSONObject("data") != null) {
-                Gson gson = new Gson();
-                alanCommand = gson.fromJson(commandObject.getJSONObject("data").toString(), AlanCommand.class);
-            } else {
-                alanCommand = new AlanCommand(Msgs.INVALID_OPERATION);
-                Alan.getInstance().getAlanButton().playText(Msgs.INVALID_OPERATION);
+                return commandObject.getJSONObject("data");
             }
         } catch (Exception e) {
             Alan.getInstance().getAlanButton().playText(Msgs.INVALID_RESPONSE);
-            alanCommand = new AlanCommand(Msgs.INVALID_RESPONSE);
+//            alanCommand = new AlanCommand(Msgs.INVALID_RESPONSE);
             e.printStackTrace();
         }
 
-        return alanCommand;
+        return null;
     }
 
 }

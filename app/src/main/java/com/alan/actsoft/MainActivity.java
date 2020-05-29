@@ -3,17 +3,30 @@ package com.alan.actsoft;
 import android.os.Bundle;
 
 import com.alan.actsoft.alan.Alan;
+import com.alan.actsoft.fragments.FormFragment;
+import com.alan.actsoft.fragments.FragmentListener;
 import com.alan.alansdk.button.AlanButton;
 
+import com.alan.actsoft.fragments.BrainsListFragment;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements FragmentListener {
     private AlanButton alanButton;
+
+    Fragment currentFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.main);
+        Toolbar toolbar = findViewById(R.id.id_toolbar);
+        setSupportActionBar(toolbar);
+
+        initializeFragment(BrainsListFragment.TAG);
+
         configAlanVoice();
     }
 
@@ -54,5 +67,22 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public void onDestroy() {
         super.onDestroy();
+    }
+
+    @Override
+    public void initializeFragment(String fragmentName) {
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        switch (fragmentName){
+            case FormFragment.TAG:
+                currentFragment = new FormFragment();
+                ft.replace(R.id.main_view, currentFragment);
+                ft.commit();
+                break;
+            default:
+                currentFragment = new BrainsListFragment();
+                ft.replace(R.id.main_view, currentFragment);
+                ft.commit();
+                break;
+        }
     }
 }

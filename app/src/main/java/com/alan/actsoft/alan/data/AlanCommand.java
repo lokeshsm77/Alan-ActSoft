@@ -5,12 +5,11 @@ package com.alan.actsoft.alan.data;
 public class AlanCommand{
     private String command;
     private String value;
+    private String screen;
+    private String name;
+    private String temp;
     private String error;
 
-    public AlanCommand(String cmd, String cValue){
-        this.command = cmd;
-        this.value = cValue;
-    }
 
     public AlanCommand(String er){
         this.error = er;
@@ -42,5 +41,30 @@ public class AlanCommand{
 
     public void setError(String error) {
         this.error = error;
+    }
+
+
+    public String getScreen() {
+        return screen;
+    }
+
+    public void setScreen(String screen) {
+        this.screen = screen;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getTemp() {
+        return temp;
+    }
+
+    public void setTemp(String temp) {
+        this.temp = temp;
     }
 }
