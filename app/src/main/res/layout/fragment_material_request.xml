@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.MaterialRequest">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/material_request"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/material_request_title"
+            android:layout_marginBottom="4dp"
+            android:textSize="30dp">
+        </TextView>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray"/>
+
+        <EditText
+            android:id="@+id/jobName"
+            android:layout_height="wrap_content"
+            android:hint="@string/job_name"
+            android:inputType="text"
+            android:layout_width="fill_parent">
+        </EditText>
+
+        <EditText
+            android:id="@+id/jobNumber"
+            android:layout_height="wrap_content"
+            android:hint="@string/job_number"
+            android:inputType="text"
+            android:layout_width="fill_parent">
+        </EditText>
+
+        <EditText
+            android:id="@+id/materialNeeded"
+            android:layout_height="wrap_content"
+            android:hint="@string/material_needed"
+            android:inputType="numberDecimal"
+            android:layout_width="fill_parent">
+        </EditText>
+
+        <EditText
+            android:id="@+id/quality"
+            android:layout_height="wrap_content"
+            android:hint="@string/quantity"
+            android:inputType="numberDecimal"
+            android:layout_width="fill_parent">
+        </EditText>
+
+        <EditText
+            android:id="@+id/neededBy"
+            android:layout_height="wrap_content"
+            android:hint="@string/needed_by"
+            android:inputType="numberDecimal"
+            android:layout_width="fill_parent">
+        </EditText>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom">
+        <Button
+            android:id="@+id/material_draft"
+            android:width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/draft"
+            android:layout_width="wrap_content">
+        </Button>
+
+        <Button
+            android:id="@+id/submit_material"
+            android:width="200dp"
+            android:layout_height="wrap_content"
+            android:text="@string/submit"
+            android:layout_width="wrap_content">
+        </Button>
+
+    </LinearLayout>
+
+
+</FrameLayout>

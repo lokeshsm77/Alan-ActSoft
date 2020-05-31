@@ -10,7 +10,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 
 import com.alan.actsoft.R;
 import com.alan.actsoft.alan.Alan;
@@ -30,7 +32,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
-public class FormFragment extends Fragment {
+public class COVIDTestForm extends Fragment {
 
     FragmentListener listener;
 
@@ -47,7 +49,13 @@ public class FormFragment extends Fragment {
     Button submit;
 
 
-    public static final String TAG = "COVID Test";
+    public static final String TAG = "covid_test_form";
+    public static final String LIST_TAG = "COVID Test";
+
+
+    Boolean isSubmitted = Boolean.FALSE;
+    String previousScreen = "home";
+
     public View onCreateView(LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.covid_test_form, container, false);
@@ -96,7 +104,7 @@ public class FormFragment extends Fragment {
 
             @Override
             public void onClick(View view) {
-                onSubmit();
+                handleBackClick();
             }
         });
 
@@ -110,6 +118,8 @@ public class FormFragment extends Fragment {
 
         employeeName.setFocusableInTouchMode(true);
         employeeName.requestFocus();
+
+        setToolbarTitle();
     }
 
     /**
@@ -119,12 +129,28 @@ public class FormFragment extends Fragment {
         this.listener.initializeFragment("");
     }
 
-    /**
-     * Method handles the on click submit
-     */
-    private void onSubmit(){
-        this.listener.initializeFragment(BrainsListFragment.TAG);
-        getActivity().getSupportFragmentManager().popBackStack();
+
+    //sets the appbar title
+    private void setToolbarTitle(){
+        TextView title = ((AppCompatActivity) getActivity()).findViewById(R.id.toolbar_title);
+        title.setText(R.string.return_to_work);
+
+        ImageView titleBack = ((AppCompatActivity) getActivity()).findViewById(R.id.toolbar_image);
+        titleBack.setImageResource(R.drawable.back_arrow);
+
+        titleBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                handleBackClick();
+            }
+        });
+    }
+
+    private void handleBackClick(){
+        getActivity().getSupportFragmentManager().popBackStackImmediate();
+
+        this.listener.initializeFragment(previousScreen);
     }
 
 
@@ -231,8 +257,12 @@ public class FormFragment extends Fragment {
                         this.submit.setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimaryDark, null));                       this.submit.requestFocus();
                         break;
                     case "submit":
-                        showSubmittedData();
+                        isSubmitted = Boolean.TRUE;
                         break;
+                    case "back":
+                        previousScreen = alanCommand.getString("screen");
+                        showSubmittedData();
+                    break;
                 }
             } else {
                 Alan.getInstance().playText(Msgs.INVALID_RESPONSE);

@@ -2,16 +2,19 @@ package com.alan.actsoft;
 
 import android.os.Bundle;
 
-import com.alan.actsoft.alan.Alan;
-import com.alan.actsoft.fragments.FormFragment;
-import com.alan.actsoft.fragments.FragmentListener;
+import com.alan.actsoft.fragments.TimeKeeping;
 import com.alan.alansdk.button.AlanButton;
 
-import com.alan.actsoft.fragments.BrainsListFragment;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.alan.actsoft.alan.Alan;
+import com.alan.actsoft.fragments.COVIDTestForm;
+import com.alan.actsoft.fragments.FragmentListener;
+import com.alan.actsoft.fragments.Home;
+import com.alan.actsoft.fragments.MaterialRequest;
 
 public class MainActivity extends AppCompatActivity implements FragmentListener {
     private AlanButton alanButton;
@@ -25,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
         Toolbar toolbar = findViewById(R.id.id_toolbar);
         setSupportActionBar(toolbar);
 
-        initializeFragment(BrainsListFragment.TAG);
+        initializeFragment(Home.TAG);
 
         configAlanVoice();
     }
@@ -73,13 +76,25 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
     public void initializeFragment(String fragmentName) {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         switch (fragmentName){
-            case FormFragment.TAG:
-                currentFragment = new FormFragment();
+            case COVIDTestForm.TAG:
+            case COVIDTestForm.LIST_TAG:
+                currentFragment = new COVIDTestForm();
+                ft.replace(R.id.main_view, currentFragment);
+                ft.commit();
+                break;
+            case TimeKeeping.TAG:
+            case TimeKeeping.LIST_TAG:
+                currentFragment = new TimeKeeping();
+                ft.replace(R.id.main_view, currentFragment);
+                ft.commit();
+                break;
+            case MaterialRequest.LIST_TAG:
+                currentFragment = new MaterialRequest();
                 ft.replace(R.id.main_view, currentFragment);
                 ft.commit();
                 break;
             default:
-                currentFragment = new BrainsListFragment();
+                currentFragment = new Home();
                 ft.replace(R.id.main_view, currentFragment);
                 ft.commit();
                 break;

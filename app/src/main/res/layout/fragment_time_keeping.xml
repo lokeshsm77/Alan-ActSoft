@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.TimeKeeping">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:id="@+id/employee_tract_status"
+            android:text="You are currently clocked in"
+            android:textSize="22dp"
+            android:gravity="center"
+            />
+        <LinearLayout
+            android:id="@+id/time_track_buttons"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/clock_in"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="Clock in"
+                android:textStyle="bold"
+                android:textSize="14dp"/>
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/clock_out"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="Clock out"
+                android:visibility="gone"
+                android:textStyle="bold"
+                android:textSize="14dp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/start_break"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="Start break"
+                android:textStyle="bold"
+                android:textSize="14dp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/stop_break"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="Stop break"
+                android:visibility="gone"
+                android:textStyle="bold"
+                android:textSize="14dp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/start_lunch"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="Start lunch"
+                android:textStyle="bold"
+                android:textSize="14dp"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/stop_lunch"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:text="Stop lunch"
+                android:visibility="gone"
+                android:textStyle="bold"
+                android:textSize="14dp"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/date_time"
+            android:textSize="24dp"
+            android:text="Monday, Jun 01, 2020"/>
+
+        <ListView
+            android:id="@+id/traks_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dip"
+            android:background="#4A9C67" >
+        </ListView>
+
+
+    </LinearLayout>
+
+</FrameLayout>

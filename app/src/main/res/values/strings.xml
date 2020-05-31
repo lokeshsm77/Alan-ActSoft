@@ -13,12 +13,26 @@
     <string name="vomiting">Vomiting</string>
     <string name="submit">Submit</string>
     <string name="draft">Draft</string>
-
+    <string name="material_request_title">Material Request Form</string>
+    <string name="job_name">Job Name</string>
+    <string name="job_number">Job Number</string>
+    <string name="material_needed">Material Needed</string>
+    <string name="quantity">Quantity</string>
+    <string name="needed_by">Needed by</string>
+    <string name="materials_request">Materials Request</string>
 
     <string name="title_activity_fullscreen">FullscreenActivity</string>
 
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="default_title">Alan\'s Test Account</string>
+
+    <string name="time_keeping">Time Keeping</string>
+    <string name="return_to_work">Return to work</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
     <string-array name="BrainsMenuItems">
         <item>Dispatching</item>
         <item>Messaging</item>
