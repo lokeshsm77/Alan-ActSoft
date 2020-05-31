@@ -81,7 +81,19 @@ public class TimeKeeping extends Fragment {
     public static final String START_LUNCH = "lunch_in";
     public static final String STOP_LUNCH = "lunch_out";
 
-    public static final Map<String, String> TRAK_KEYS = new HashMap<>();
+    private String currentStatus;
+
+    public static final Map<String, String> TRAK_KEYS = new HashMap<String, String>(){
+        {
+            put(CLOCK_IN, "Clock in");
+            put(CLOCK_OUT, "Clock out");
+            put(START_BREAK, "Start break");
+            put(STOP_BREAK, "Stop break");
+            put(START_LUNCH, "Start lunch");
+            put(STOP_LUNCH, "Stop lunch");
+        }
+    };
+
 
     private ListView trackList;
     private List trackData;
@@ -94,18 +106,12 @@ public class TimeKeeping extends Fragment {
     Button startLunch;
     Button stopLunch;
 
+    TextView employeeTrackStatus;
+
     public TimeKeeping() {
-        initializeKeys();
+
     }
 
-    private void initializeKeys(){
-        TRAK_KEYS.put(CLOCK_IN, "Clock in");
-        TRAK_KEYS.put(CLOCK_OUT, "Clock out");
-        TRAK_KEYS.put(START_BREAK, "Start break");
-        TRAK_KEYS.put(STOP_BREAK, "Stop break");
-        TRAK_KEYS.put(START_LUNCH, "Start lunch");
-        TRAK_KEYS.put(STOP_LUNCH, "Stop lunch");
-    }
 
     /**
      * Use this factory method to create a new instance of
@@ -153,6 +159,7 @@ public class TimeKeeping extends Fragment {
         stopBreak = rootView.findViewById(R.id.stop_break);
         startLunch = rootView.findViewById(R.id.start_lunch);
         stopLunch = rootView.findViewById(R.id.stop_lunch);
+        employeeTrackStatus = rootView.findViewById(R.id.employee_track_status);
         initializeAlanListener();
     }
 
@@ -246,7 +253,7 @@ public class TimeKeeping extends Fragment {
         }
 
         StringBuilder sb = new StringBuilder();
-        sb.append(trackerName).append("     ").append(value);
+        sb.append(trackerName).append("      ").append(value);
         timeTracks.add(sb.toString());
 
         trackData.add(sb.toString());
@@ -254,6 +261,9 @@ public class TimeKeeping extends Fragment {
 
         editor.putStringSet(TIME_TRACKS, timeTracks);
         editor.commit();
+
+        employeeTrackStatus.setText("You are currently "+ trackerName);
+
 
     }
 
@@ -340,9 +350,7 @@ public class TimeKeeping extends Fragment {
                 switch (cmd) {
                     case "open":
                         String screen = alanCommand.getString("screen");
-                        if("covid_test_form".equalsIgnoreCase(screen)){
-                            this.listener.initializeFragment(COVIDTestForm.TAG);
-                        }
+                        this.listener.initializeFragment(screen);
                         break;
                     case CLOCK_IN:
                         checkIn.setVisibility(View.GONE);
@@ -367,6 +375,10 @@ public class TimeKeeping extends Fragment {
                     case STOP_LUNCH:
                         startLunch.setVisibility(View.VISIBLE);
                         stopLunch.setVisibility(View.GONE);
+                        break;
+                    case "back":
+                         screen = alanCommand.getString("screen");
+                         this.listener.initializeFragment(screen);
                         break;
                 }
 

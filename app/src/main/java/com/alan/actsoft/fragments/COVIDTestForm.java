@@ -44,6 +44,8 @@ public class COVIDTestForm extends Fragment {
     CheckBox fever;
     CheckBox vomiting;
     CheckBox coughing;
+    CheckBox noSymptoms;
+    CheckBox noOfAbove;
 
     Button draft;
     Button submit;
@@ -87,6 +89,8 @@ public class COVIDTestForm extends Fragment {
         fever = rootView.findViewById(R.id.feverCheckbox);
         vomiting = rootView.findViewById(R.id.vomitingCheckbox);
         coughing = rootView.findViewById(R.id.coughCheckbox);
+        noSymptoms = rootView.findViewById(R.id.noSymptoms);
+        noOfAbove = rootView.findViewById(R.id.noneOfAbove);
 
         draft = rootView.findViewById(R.id.covid_draft);
         submit = rootView.findViewById(R.id.covid_submit);
@@ -252,7 +256,24 @@ public class COVIDTestForm extends Fragment {
                             } else {
                                 this.vomiting.setChecked(false);
                             }
+                        } else if(symptom.equalsIgnoreCase("none")){
+                            this.noSymptoms.setFocusableInTouchMode(true);
+                            this.noSymptoms.requestFocus();
+                            if(!this.noSymptoms.isChecked()){
+                                this.noSymptoms.setChecked(true);
+                            } else {
+                                this.noSymptoms.setChecked(false);
+                            }
+                        } else if(symptom.equalsIgnoreCase("none of above")){
+                            this.noOfAbove.setFocusableInTouchMode(true);
+                            this.noOfAbove.requestFocus();
+                            if(!this.noOfAbove.isChecked()){
+                                this.noOfAbove.setChecked(true);
+                            } else {
+                                this.noOfAbove.setChecked(false);
+                            }
                         }
+
                         this.submit.setFocusableInTouchMode(true);
                         this.submit.setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimaryDark, null));                       this.submit.requestFocus();
                         break;

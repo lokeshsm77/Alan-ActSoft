@@ -67,6 +67,20 @@
             android:layout_width="fill_parent">
         </CheckBox>
 
+        <CheckBox
+            android:id="@+id/noSymptoms"
+            android:layout_height="wrap_content"
+            android:text="@string/no_symptoms"
+            android:layout_width="fill_parent">
+        </CheckBox>
+
+        <CheckBox
+            android:id="@+id/noneOfAbove"
+            android:layout_height="wrap_content"
+            android:text="@string/none_of_above"
+            android:layout_width="fill_parent">
+        </CheckBox>
+
         <Button
             android:id="@+id/covid_draft"
             android:width="200dp"

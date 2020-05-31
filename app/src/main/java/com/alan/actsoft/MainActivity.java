@@ -16,10 +16,24 @@ import com.alan.actsoft.fragments.FragmentListener;
 import com.alan.actsoft.fragments.Home;
 import com.alan.actsoft.fragments.MaterialRequest;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class MainActivity extends AppCompatActivity implements FragmentListener {
     private AlanButton alanButton;
 
     Fragment currentFragment;
+
+
+    private static final Map<String, String> fragmentsMap = new HashMap<String, String>(){
+        {
+            put(COVIDTestForm.TAG, COVIDTestForm.LIST_TAG);
+            put(Home.TAG, Home.TAG);
+            put(MaterialRequest.TAG, MaterialRequest.LIST_TAG);
+            put(TimeKeeping.TAG, TimeKeeping.LIST_TAG);
+
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,16 +87,16 @@ public class MainActivity extends AppCompatActivity implements FragmentListener 
     }
 
     @Override
-    public void initializeFragment(String fragmentName) {
+    public void initializeFragment(String fragmentTag) {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        String fragmentName = fragmentsMap.get(fragmentTag);
+        fragmentName = (null != fragmentName) ? fragmentName : fragmentTag;
         switch (fragmentName){
-            case COVIDTestForm.TAG:
             case COVIDTestForm.LIST_TAG:
                 currentFragment = new COVIDTestForm();
                 ft.replace(R.id.main_view, currentFragment);
                 ft.commit();
                 break;
-            case TimeKeeping.TAG:
             case TimeKeeping.LIST_TAG:
                 currentFragment = new TimeKeeping();
                 ft.replace(R.id.main_view, currentFragment);

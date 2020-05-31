@@ -24,6 +24,9 @@ import com.alan.alansdk.events.EventText;
 
 import org.json.JSONObject;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.ListFragment;
@@ -164,17 +167,20 @@ public class Home extends ListFragment implements AdapterView.OnItemClickListene
                 switch (cmd) {
                     case "open":
                         String screen = alanCommand.getString("screen");
-                        if (screen.equalsIgnoreCase(COVIDTestForm.TAG)) {
-                            this.listener.initializeFragment(COVIDTestForm.LIST_TAG);
-                        } else if(screen.equalsIgnoreCase(TimeKeeping.TAG)){
-                            this.listener.initializeFragment(TimeKeeping.LIST_TAG);
-                        } else if(screen.equalsIgnoreCase(MaterialRequest.TAG)){
-                            this.listener.initializeFragment(MaterialRequest.LIST_TAG);
-                        } else {
-                            this.listener.initializeFragment(Home.TAG);
+                        if(screen != null) {
+                            if (screen.equalsIgnoreCase(COVIDTestForm.TAG)) {
+                                listener.initializeFragment(COVIDTestForm.LIST_TAG);
+                            } else if (screen.equalsIgnoreCase(TimeKeeping.TAG)) {
+                                listener.initializeFragment(TimeKeeping.LIST_TAG);
+                            } else if (screen.equalsIgnoreCase(MaterialRequest.TAG)) {
+                                listener.initializeFragment(MaterialRequest.LIST_TAG);
+                            } else {
+                                listener.initializeFragment(Home.TAG);
+                            }
+                        } else {//When screen is null, going back to home
+                            listener.initializeFragment(Home.TAG);
                         }
                         break;
-
                 }
             } else {
                 Alan.getInstance().playText(Msgs.INVALID_RESPONSE);

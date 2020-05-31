@@ -11,6 +11,10 @@
     <string name="fever">Fever</string>
     <string name="coughing">Coughing</string>
     <string name="vomiting">Vomiting</string>
+
+    <string name="no_symptoms">No Symptoms</string>
+    <string name="none_of_above">None of above</string>
+
     <string name="submit">Submit</string>
     <string name="draft">Draft</string>
     <string name="material_request_title">Material Request Form</string>
@@ -25,7 +29,7 @@
 
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
-    <string name="default_title">Alan\'s Test Account</string>
+    <string name="default_title">Actsoft\'s Account</string>
 
     <string name="time_keeping">Time Keeping</string>
     <string name="return_to_work">Return to work</string>

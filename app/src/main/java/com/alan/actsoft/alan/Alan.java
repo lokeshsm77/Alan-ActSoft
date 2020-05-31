@@ -16,7 +16,7 @@ import java.util.Map;
 
 public class Alan {
 
-    static final String PROJECT_ID = "8654172abe8391db0799a571520370fa2e956eca572e1d8b807a3e2338fdd0dc/stage";
+    static final String PROJECT_ID = "8654172abe8391db0799a571520370fa2e956eca572e1d8b807a3e2338fdd0dc/prod";
 
     private AlanButton alanButton;
 

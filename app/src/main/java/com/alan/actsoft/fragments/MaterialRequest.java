@@ -159,7 +159,7 @@ public class MaterialRequest extends Fragment {
 
     private void handleBackClick(){
         getActivity().getSupportFragmentManager().popBackStack();
-        this.listener.initializeFragment("");
+        this.listener.initializeFragment(Home.TAG);
     }
 
     @Override
@@ -280,10 +280,6 @@ public class MaterialRequest extends Fragment {
                     case "back":
                         submit.performClick();
                         handleBackClick();
-                        break;
-
-                    default:
-                        //Alan.getInstance().playText("Time keeping Form " + cmd);
                         break;
                 }
             } else {

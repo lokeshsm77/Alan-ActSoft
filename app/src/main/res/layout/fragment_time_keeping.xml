@@ -14,8 +14,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:id="@+id/employee_tract_status"
-            android:text="You are currently clocked in"
+            android:id="@+id/employee_track_status"
+            android:text="Welcome!"
             android:textSize="22dp"
             android:gravity="center"
             />
@@ -94,8 +94,7 @@
             android:id="@+id/traks_list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dip"
-            android:background="#4A9C67" >
+            android:layout_marginTop="10dip">
         </ListView>
 
 
