@@ -41,12 +41,10 @@
         <item>Dispatching</item>
         <item>Messaging</item>
         <item>Time Keeping</item>
+        <item>COVID Test</item>
         <item>Crew Time Set</item>
         <item>Materials Request</item>
         <item>My Transfers</item>
-        <item>Workflow Test</item>
-        <item>Test for Fields</item>
-        <item>COVID Test</item>
     </string-array>
 
 </resources>
