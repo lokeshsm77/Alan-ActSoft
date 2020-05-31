@@ -87,6 +87,7 @@
             android:layout_height="wrap_content"
             android:text="@string/draft"
             android:onClick="saveDraft"
+            android:visibility="gone"
             android:layout_width="fill_parent">
         </Button>
 
